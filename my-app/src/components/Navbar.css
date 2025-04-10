@@ -1,0 +1,23 @@
+.navbar{
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    margin-top: 25px;
+}
+
+.navbar-brand{
+    font-size: 25px;
+    text-transform: uppercase;
+}
+
+.navbar-menu{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.navbar-item{
+    list-style: none;
+    font-size: 16px;
+}
