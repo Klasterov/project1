@@ -8,6 +8,7 @@
 .navbar-brand{
     font-size: 25px;
     text-transform: uppercase;
+    color: white;
 }
 
 .navbar-menu{
@@ -20,4 +21,5 @@
 .navbar-item{
     list-style: none;
     font-size: 16px;
+    color: white;
 }

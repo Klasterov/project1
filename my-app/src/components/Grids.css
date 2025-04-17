@@ -1,0 +1,26 @@
+.grid-container {
+    margin-top: 50px;
+}
+
+.text-content{
+    display: flex;
+    
+    flex-direction: column;
+    margin-left: 25%;
+    margin-top: 15%;
+    width: 550px;
+}
+
+h2{
+    font-size: 50px;
+    font-weight: bold;
+    color: white;
+    width: 500px;
+    margin-bottom: 15px;
+}
+
+p{
+    font-size: 18px;
+    font-weight: lighter;
+    color: #8794BA;
+}

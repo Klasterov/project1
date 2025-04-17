@@ -18,10 +18,11 @@ body {
 
 body {
   color: var(--foreground);
-  background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: url('../../public/images/back.png') no-repeat center center fixed;
+  background-size: cover;
 }
 
 * {
