@@ -24,3 +24,17 @@ p{
     font-weight: lighter;
     color: #8794BA;
 }
+
+p:last-child{
+    color: white;
+    text-align: center;
+    width: 450px;
+    font-size: 24px;
+}
+
+.image-content{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
