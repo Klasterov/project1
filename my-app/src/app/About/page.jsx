@@ -1,10 +1,8 @@
 import React from "react";
+import AboutContent from "@/components/about";
 
 export default function About() {
     return (
-        <div>
-            <h1>About Us</h1>
-            <p>We are a company that values excellence and innovation.</p>
-        </div>
+            <AboutContent />
     );
 }
