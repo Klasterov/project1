@@ -4,6 +4,8 @@ import { Select as BaseSelect, selectClasses } from '@mui/base/Select';
 import { Option as BaseOption, optionClasses } from '@mui/base/Option';
 import { styled } from '@mui/system';
 
+const PopupContext = React.createContext();
+
 const options = [
   { value: 10, label: 'Documentation' },
   { value: 20, label: 'Components' },
@@ -12,13 +14,15 @@ const options = [
 
 export default function DropDown() {
   return (
-    <Select defaultValue={10}>
-      {options.map((option) => (
-        <Option key={option.value} value={option.value} aria-label={option.label}>
-          {option.label}
-        </Option>
-      ))}
-    </Select>
+    <PopupContext.Provider value={{ placement: 'bottom' }}>
+      <Select defaultValue={10}>
+        {options.map((option) => (
+          <BaseOption key={option.value} value={option.value} aria-label={option.label}>
+            {option.label}
+          </BaseOption>
+        ))}
+      </Select>
+    </PopupContext.Provider>
   );
 }
 
@@ -43,6 +47,15 @@ Select.propTypes = {
 
 const StyledButton = styled('button')`
   /* Stiluri personalizate */
+`;
+
+const Popup = styled('div')`
+  /* Stiluri personalizate pentru Popup */
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 8px;
 `;
 
 const AnimatedListbox = React.forwardRef(function AnimatedListbox(props, ref) {
