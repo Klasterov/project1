@@ -3,24 +3,20 @@ import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import "./dropdown.css";
 
-const options = [
-  { value: 10, label: "Documentation" },
-  { value: 20, label: "Components" },
-  { value: 30, label: "Features" },
+const regions = [
+  { value: "none", label: "Selectează regiunea" },
+  { value: "Nord", label: "Nord" },
+  { value: "Centru", label: "Centru" },
+  { value: "Sud", label: "Sud" }
 ];
 
-export default function DropDownser() {
-  const [selectedValue, setSelectedValue] = React.useState(10);
-
-  const handleChange = (event) => {
-    setSelectedValue(event.target.value);
-  };
-
+export default function DropDownreg({ selectedRegion, setSelectedRegion }) {
   return (
     <div className="dropdown-container">
-      <Select value={selectedValue} onChange={handleChange}>
-        {options.map((option) => (
-          <MenuItem key={option.value} value={option.value}>
+      <label htmlFor="region-select">Alege regiunea:</label>
+      <Select id="region-select" value={selectedRegion} onChange={(e) => setSelectedRegion(e.target.value)}>
+        {regions.map((option, index) => (
+          <MenuItem key={option.value} value={option.value} disabled={index === 0}>
             {option.label}
           </MenuItem>
         ))}

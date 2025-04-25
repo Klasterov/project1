@@ -3,24 +3,26 @@ import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import "./dropdown.css";
 
-const options = [
-  { value: "none", label: "Selecteaza serviciul" },
+const services = [
+  { value: "none", label: "Selectează serviciul" },
   { value: "Gaze naturale", label: "Gaze naturale" },
-  { value: "Energie electrica", label: "Energie electrica" },
-  { value: "Energie termica", label: "Energie termica" },
-  { value: "Apa si canalizare", label: "Apa si canalizare" },
+  { value: "Energie electrica", label: "Energie electrică" },
+  { value: "Energie termica", label: "Energie termică" },
+  { value: "Apa si canalizare", label: "Apă și canalizare" }
 ];
 
-export default function DropDownser({ selectedService, setSelectedService }) {
-  const handleChange = (event) => {
-    setSelectedService(event.target.value); // Actualizează serviciul ales
-  };
-
+export default function DropDownser({ selectedRegion, selectedService, setSelectedService }) {
   return (
     <div className="dropdown-container">
-      <Select value={selectedService} onChange={handleChange}>
-        {options.map((option) => (
-          <MenuItem key={option.value} value={option.value}>
+      <label htmlFor="service-select">Alege serviciul:</label>
+      <Select
+        id="service-select"
+        value={selectedService}
+        onChange={(e) => setSelectedService(e.target.value)}
+        disabled={selectedRegion === "none"} // Dacă regiunea nu este selectată, dezactivează dropdown-ul!
+      >
+        {services.map((option, index) => (
+          <MenuItem key={option.value} value={option.value} disabled={index === 0}>
             {option.label}
           </MenuItem>
         ))}
