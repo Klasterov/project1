@@ -1,20 +1,24 @@
+"use client";
 import React from "react";
+import { BrowserRouter , Routes, Route } from "react-router-dom";
+import Login from "./components/login";
+import Dashboard from "./components/dashboard";
+import PrivateRoute from "./components/private";
 
-export default function Login() {
-  return (
-    <div className="login-container">
-      <h1>Log In</h1>
-      <form className="login-form">
-        <div className="form-group">
-          <label htmlFor="username">Username:</label>
-          <input type="text" id="username" name="username" required />
-        </div>
-        <div className="form-group">
-          <label htmlFor="password">Password:</label>
-          <input type="password" id="password" name="password" required />
-        </div>
-        <button type="submit">Log In</button>
-      </form>
-    </div>
-  );
+export default function App() {
+    return (
+      <BrowserRouter>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route
+            path="/dashboard"
+            element={
+              <PrivateRoute>
+                <Dashboard />
+              </PrivateRoute>
+            }
+          />
+        </Routes>
+      </BrowserRouter>
+    );
 }
