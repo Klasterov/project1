@@ -2,42 +2,54 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Container } from "react-bootstrap";
+import "./login.css";
 
 export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [isRegistering, setIsRegistering] = useState(false); // Stare pentru a comuta între logare și înregistrare
+    const [isRegistering, setIsRegistering] = useState(false);
+    const [messages, setMessages] = useState([]);
     const navigate = useNavigate();
 
     const handleSubmit = () => {
+        const newMessages = [];
+
         if (!email || !password) {
-            alert("Toate câmpurile sunt obligatorii!");
+            newMessages.push("Toate câmpurile sunt obligatorii!");
             return;
         }
 
         if (isRegistering) {
-            // Logica pentru înregistrare
             localStorage.setItem("userEmail", email);
             localStorage.setItem("userPassword", password);
-            alert("Înregistrare reușită! Acum te poți loga.");
-            setIsRegistering(false); // Comută la modul de logare
+            newMessages.push("Înregistrare reușită! Acum te poți loga.");
+            setIsRegistering(false);
         } else {
-            // Logica pentru logare
             const storedEmail = localStorage.getItem("userEmail");
             const storedPassword = localStorage.getItem("userPassword");
 
             if (email === storedEmail && password === storedPassword) {
-                alert("Autentificare reușită!");
+                newMessages.push("Autentificare reușită!");
                 navigate("/dashboard");
             } else {
-                alert("Email sau parolă incorectă!");
+                newMessages.push("Email sau parolă incorectă!");
             }
         }
+        setMessages(newMessages);
     };
 
     return (
         <Container className="auth-container">
+            <div className="login">
             <h2>{isRegistering ? "Înregistrare" : "Logare"}</h2>
+            <div className="messages">
+                {messages.map((message, index) => (
+                    <p key={index} className="message" style={{ color: message.includes("reușită") ? "green" : "red" }}>
+                        {message}
+                    </p>
+                ))}
+            </div>
+
             <input
                 type="email"
                 placeholder="Email"
@@ -53,11 +65,12 @@ export default function Login() {
             <button onClick={handleSubmit}>
                 {isRegistering ? "Înregistrează-te" : "Logare"}
             </button>
-            <p onClick={() => setIsRegistering(!isRegistering)} style={{ cursor: "pointer", color: "blue" }}>
+            <p onClick={() => setIsRegistering(!isRegistering)}>
                 {isRegistering
                     ? "Ai deja un cont? Loghează-te!"
                     : "Nu ai cont? Înregistrează-te!"}
             </p>
+            </div>
         </Container>
     );
 }
