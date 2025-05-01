@@ -1,7 +1,6 @@
 import React from "react";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
-import "./dropdown.css";
 
 const services = [
   { value: "none", label: "Selectează serviciul" },
@@ -11,7 +10,7 @@ const services = [
   { value: "Apa si canalizare", label: "Apă și canalizare" }
 ];
 
-export default function DropDownser({ selectedRegion, selectedService, setSelectedService }) {
+export default function Services({ selectedRegion, selectedService, setSelectedService }) {
   return (
     <div className="dropdown-container">
       <label htmlFor="service-select">Alege serviciul:</label>

@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
 import { Container } from "react-bootstrap";
 import "./login.css";
 
@@ -9,13 +9,14 @@ export default function Login() {
     const [password, setPassword] = useState("");
     const [isRegistering, setIsRegistering] = useState(false);
     const [messages, setMessages] = useState([]);
-    const navigate = useNavigate();
+    const router = useRouter(); // Folosim `useRouter` pentru navigare
 
     const handleSubmit = () => {
         const newMessages = [];
 
         if (!email || !password) {
             newMessages.push("Toate câmpurile sunt obligatorii!");
+            setMessages(newMessages);
             return;
         }
 
@@ -30,7 +31,7 @@ export default function Login() {
 
             if (email === storedEmail && password === storedPassword) {
                 newMessages.push("Autentificare reușită!");
-                navigate("/dashboard");
+                router.push("/dashboard"); // Navigare corectă
             } else {
                 newMessages.push("Email sau parolă incorectă!");
             }
@@ -41,35 +42,33 @@ export default function Login() {
     return (
         <Container className="auth-container">
             <div className="login">
-            <h2>{isRegistering ? "Înregistrare" : "Logare"}</h2>
-            <div className="messages">
-                {messages.map((message, index) => (
-                    <p key={index} className="message" style={{ color: message.includes("reușită") ? "green" : "red" }}>
-                        {message}
-                    </p>
-                ))}
-            </div>
+                <h2>{isRegistering ? "Înregistrare" : "Logare"}</h2>
+                <div className="messages">
+                    {messages.map((message, index) => (
+                        <p key={index} className="message" style={{ color: message.includes("reușită") ? "green" : "red" }}>
+                            {message}
+                        </p>
+                    ))}
+                </div>
 
-            <input
-                type="email"
-                placeholder="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-            />
-            <input
-                type="password"
-                placeholder="Parolă"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-            />
-            <button onClick={handleSubmit}>
-                {isRegistering ? "Înregistrează-te" : "Logare"}
-            </button>
-            <p onClick={() => setIsRegistering(!isRegistering)}>
-                {isRegistering
-                    ? "Ai deja un cont? Loghează-te!"
-                    : "Nu ai cont? Înregistrează-te!"}
-            </p>
+                <input
+                    type="email"
+                    placeholder="Email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                />
+                <input
+                    type="password"
+                    placeholder="Parolă"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                />
+                <button onClick={handleSubmit}>
+                    {isRegistering ? "Înregistrează-te" : "Logare"}
+                </button>
+                <p onClick={() => setIsRegistering(!isRegistering)}>
+                    {isRegistering ? "Ai deja un cont? Loghează-te!" : "Nu ai cont? Înregistrează-te!"}
+                </p>
             </div>
         </Container>
     );
