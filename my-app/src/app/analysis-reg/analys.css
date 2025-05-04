@@ -22,7 +22,7 @@
 .chart-container {
     position: relative;
     width: 100%;
-    height: 400px; /* Înălțimea graficului */
+    height: 400px;
 }
 
 .chart-controls-inside {
@@ -31,8 +31,8 @@
     left: 85%;
     transform: translateX(-50%);
     display: flex;
-    gap: 10px; /* Spațiere între butoane */
-    z-index: 10; /* Asigură-te că butoanele sunt deasupra graficului */
+    gap: 10px;
+    z-index: 10; 
 }
 
 .chart-controls-inside button {
@@ -43,7 +43,7 @@
     border-radius: 5px;
     cursor: pointer;
     font-size: 14px;
-    opacity: 0.5; /* Butoanele inactive sunt semi-transparente */
+    opacity: 0.5;
     transition: opacity 0.3s ease;
 }
 
