@@ -68,7 +68,7 @@ export default function AnalysisReg() {
                     <DropDownreg selectedRegion={selectedRegion} setSelectedRegion={setSelectedRegion} />
                     <DropDownser selectedRegion={selectedRegion} selectedService={selectedService} setSelectedService={setSelectedService} />
                 </div>
-
+                <div className="chart-container">
                     <div className="chart-controls-inside">
                         <button className={activeButton === "week" ? "active" : ""} onClick={() => setActiveButton("week")}>Săptămâna</button>
                         <button className={activeButton === "month" ? "active" : ""} onClick={() => setActiveButton("month")}>Luna</button>
@@ -82,9 +82,7 @@ export default function AnalysisReg() {
                             scaleType: "linear",
                             position: "right",
                             style: { fill: "#000000" },
-                            labelStyle: { fill: "#000000", fontSize: 14 },
-                            tickFormat: (value) => `${value} lei`,
-                            tooltipFormatter: (value) => `${value} lei`
+                            labelStyle: { fill: "#000000", fontSize: 14 }
                         }]}
                         xAxis={[{
                             data: xLabels,
@@ -96,10 +94,11 @@ export default function AnalysisReg() {
                             showMark: true,
                             color: "#26E2B3",
                             lineWidth: 3,
-                            label: (point) => `${point} lei`
+                            
                         }]}
                         margin={{ top: 60, right: 24, bottom: 24, left: 24 }}
                     />
+                </div>
                     <LineChart
                         className="chart forecast-chart"
                         height={400}
@@ -108,9 +107,7 @@ export default function AnalysisReg() {
                             scaleType: "linear",
                             position: "right",
                             style: { fill: "#000000" },
-                            labelStyle: { fill: "#000000", fontSize: 14 },
-                            tickFormat: (value) => `${value} lei`,
-                            tooltipFormatter: (value) => `${value} lei`
+                            labelStyle: { fill: "#000000", fontSize: 14 }
                         }]}
                         xAxis={[{
                             data: forecastLabels,
@@ -122,7 +119,6 @@ export default function AnalysisReg() {
                             showMark: true,
                             color: "#FF5733",
                             lineWidth: 3,
-                            label: (point) => `${point} lei`
                         }]}
                         margin={{ top: 60, right: 24, bottom: 24, left: 24 }}
                     /> 

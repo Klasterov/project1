@@ -14,7 +14,6 @@ const services = [
 export default function DropDownser({ selectedRegion, selectedService, setSelectedService }) {
   return (
     <div className="dropdown-container">
-      <label htmlFor="service-select">Alege serviciul:</label>
       <Select
         id="service-select"
         value={selectedService}

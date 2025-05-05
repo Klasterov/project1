@@ -13,7 +13,6 @@ const regions = [
 export default function DropDownreg({ selectedRegion, setSelectedRegion }) {
   return (
     <div className="dropdown-container">
-      <label htmlFor="region-select">Alege regiunea:</label>
       <Select id="region-select" value={selectedRegion} onChange={(e) => setSelectedRegion(e.target.value)}>
         {regions.map((option, index) => (
           <MenuItem key={option.value} value={option.value} disabled={index === 0}>
