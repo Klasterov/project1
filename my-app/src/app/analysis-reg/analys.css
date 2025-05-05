@@ -55,3 +55,28 @@
     justify-content: space-around;
     margin-bottom: 50px;
 }
+
+@media screen and (max-width: 800px) {
+    .analysis-reg h1 {
+        font-size: 28px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    .chart-container {
+        width: auto;
+        
+    }
+
+    .chart-controls-inside {
+        top: 5px;
+        left: 90%;
+        flex-direction: column;
+    }
+
+    .chart-controls-inside button {
+        font-size: 12px;
+        
+    }
+    
+}

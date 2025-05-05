@@ -96,7 +96,7 @@ export default function AnalysisReg() {
                             lineWidth: 3,
                             
                         }]}
-                        margin={{ top: 60, right: 24, bottom: 24, left: 24 }}
+                        margin={{ top: 20, right: 24, bottom: 24, left: 24 }}
                     />
                 </div>
                     <LineChart
@@ -120,7 +120,7 @@ export default function AnalysisReg() {
                             color: "#FF5733",
                             lineWidth: 3,
                         }]}
-                        margin={{ top: 60, right: 24, bottom: 24, left: 24 }}
+                        margin={{ top: 20, right: 0, bottom: 24, left: 24 }}
                     /> 
                 </div>
         </Container>

@@ -74,3 +74,24 @@
 .placement-top {
     bottom: 100%;
 }
+
+@media screen and (max-width: 800px) {
+    .dropdown-container {
+        width: auto;
+        padding: 5px;
+    }
+
+    .styled-button {
+        width: 100%;
+        font-size: 12px;
+    }
+
+    .MuiSelect-root {
+        width: auto;
+        height: 50px;
+    }
+
+    .drop-down{
+        flex-direction: column;
+    }
+}
