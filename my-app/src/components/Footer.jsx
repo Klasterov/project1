@@ -6,7 +6,7 @@ export default function Footer() {
     return (
         <footer className="footer">
             <div className="footer-content">
-                <p>&copy; 2023 asdpsc. Toate drepturile rezervate.</p>
+                <p>&copy; 2025 asdpsc. Toate drepturile rezervate.</p>
                 <ul className="footer-links" >
                     <li><Link href="/About">Despre noi</Link></li>
                     <li><Link href="/analysis-reg">Analiza pe regiune</Link></li>
