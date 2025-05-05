@@ -9,11 +9,10 @@
 
 .login .messages {
     margin-bottom: 20px;
-    text-align: left; /* Aliniază mesajele la stânga */
-    color: red; /* Culoare pentru mesaje de eroare */
+    text-align: left; 
+    color: red;
 }
 
-/* Stil pentru fiecare mesaj */
 .login .message {
     font-size: 16px;
     margin: 5px 0;
@@ -58,4 +57,25 @@
     color: #000000;
     text-decoration: none;
     cursor: pointer;
+}
+
+@media screen and (max-width: 800px) {
+    .auth-container{
+        width: auto;
+        height: auto;
+        margin-top: 50px;
+        border-radius: 20px;
+        margin-bottom: 100px;
+    }
+    .login h2{
+        font-size: 28px;
+        margin-top: 20px;
+    }
+    .login input{
+        width: 90%;
+    }
+    .login button{
+        width: 90%;
+    }
+    
 }
