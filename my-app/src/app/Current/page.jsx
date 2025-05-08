@@ -2,8 +2,8 @@
 'use client'
 import React from "react";
 import { Container } from "react-bootstrap";
-import { Select } from "@mui/material/";
-import { MenuItem } from "@mui/material/";
+import { Select } from "@mui/material/Select";
+import { MenuItem } from "@mui/material/MenuItem";
 import "./current.css";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
